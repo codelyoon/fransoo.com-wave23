@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,9 +7,11 @@
   <title>Wave23 — tap to review</title>
   <meta name="description" content="Wave23 makes programmable NFC cards that turn a tap into a Google review. Built for local businesses." />
   <meta name="theme-color" content="#07121a" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
   <style>
     :root {
       --bg: #07121a;
@@ -24,8 +27,17 @@
       --header: rgba(7, 18, 26, 0.78);
       --glow: rgba(46, 196, 230, 0.22);
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       background: var(--bg);
       color: var(--ink);
@@ -34,7 +46,12 @@
       min-height: 100vh;
       overflow-x: hidden;
     }
-    a { color: inherit; text-decoration: none; }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
     .waves {
       pointer-events: none;
       position: fixed;
@@ -42,6 +59,7 @@
       z-index: 0;
       overflow: hidden;
     }
+
     .ring {
       position: absolute;
       left: 68%;
@@ -53,13 +71,30 @@
       border: 1px solid rgba(126, 231, 255, 0.35);
       animation: pulse 4.8s ease-out infinite;
     }
-    .ring:nth-child(2) { animation-delay: 1.2s; }
-    .ring:nth-child(3) { animation-delay: 2.4s; }
-    .ring:nth-child(4) { animation-delay: 3.6s; }
-    @keyframes pulse {
-      0% { transform: scale(0.4); opacity: 0.7; }
-      100% { transform: scale(6.5); opacity: 0; }
+
+    .ring:nth-child(2) {
+      animation-delay: 1.2s;
     }
+
+    .ring:nth-child(3) {
+      animation-delay: 2.4s;
+    }
+
+    .ring:nth-child(4) {
+      animation-delay: 3.6s;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(0.4);
+        opacity: 0.7;
+      }
+      100% {
+        transform: scale(6.5);
+        opacity: 0;
+      }
+    }
+
     .burst {
       position: fixed;
       width: 20px;
@@ -71,10 +106,22 @@
       z-index: 5;
       animation: burst 1.4s ease-out forwards;
     }
+
     @keyframes burst {
-      to { transform: scale(18); opacity: 0; }
+      to {
+        transform: scale(18);
+        opacity: 0;
+      }
     }
-    .wrap { position: relative; z-index: 2; max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+    .wrap {
+      position: relative;
+      z-index: 2;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
     header {
       position: sticky;
       top: 0;
@@ -83,10 +130,32 @@
       background: var(--header);
       border-bottom: 1px solid var(--line);
     }
-    .nav { display: flex; align-items: center; justify-content: space-between; height: 68px; }
-    .brand { font-weight: 600; letter-spacing: -0.04em; font-size: 20px; cursor: pointer; }
-    .nav-links { display: flex; gap: 22px; font-size: 14px; color: var(--muted); }
-    .nav-links a:hover { color: var(--ink); }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .brand {
+      font-weight: 600;
+      letter-spacing: -0.04em;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--ink);
+    }
+
     .nav-cta {
       font-size: 13px;
       padding: 8px 14px;
@@ -94,8 +163,17 @@
       background: var(--blue-soft);
       color: var(--blue-2);
       border-radius: 999px;
+      transition: background 0.2s ease;
     }
-    .hero { padding: 92px 0 64px; }
+
+    .nav-cta:hover {
+      background: rgba(46, 196, 230, 0.24);
+    }
+
+    .hero {
+      padding: 92px 0 64px;
+    }
+
     .kicker {
       font-family: "IBM Plex Mono", monospace;
       font-size: 12px;
@@ -104,15 +182,31 @@
       color: var(--blue-2);
       margin-bottom: 16px;
     }
+
     h1 {
       font-size: clamp(52px, 9vw, 96px);
       line-height: 0.9;
       letter-spacing: -0.055em;
       font-weight: 600;
     }
-    .lede { max-width: 620px; margin-top: 24px; font-size: 20px; color: var(--muted); font-weight: 300; }
-    .lede strong { color: var(--ink); font-weight: 500; }
-    section { padding: 28px 0 72px; }
+
+    .lede {
+      max-width: 620px;
+      margin-top: 24px;
+      font-size: 20px;
+      color: var(--muted);
+      font-weight: 300;
+    }
+
+    .lede strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    section {
+      padding: 28px 0 72px;
+    }
+
     .section-label {
       font-family: "IBM Plex Mono", monospace;
       font-size: 12px;
@@ -121,12 +215,39 @@
       color: var(--dim);
       margin-bottom: 14px;
     }
-    h2 { font-size: clamp(28px, 4vw, 40px); letter-spacing: -0.04em; margin-bottom: 14px; }
-    .prose { max-width: 680px; color: var(--muted); font-size: 17px; }
-    .prose p + p { margin-top: 14px; }
-    .prose strong { color: var(--ink); font-weight: 500; }
-    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 28px; }
-    .grid.two { grid-template-columns: 1.1fr 0.9fr; }
+
+    h2 {
+      font-size: clamp(28px, 4vw, 40px);
+      letter-spacing: -0.04em;
+      margin-bottom: 14px;
+    }
+
+    .prose {
+      max-width: 680px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .prose p + p {
+      margin-top: 14px;
+    }
+
+    .prose strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .grid.two {
+      grid-template-columns: 1.1fr 0.9fr;
+    }
+
     .card {
       background: linear-gradient(180deg, var(--card), var(--card-2));
       border: 1px solid var(--line);
@@ -134,51 +255,107 @@
       padding: 22px;
       transition: transform 0.25s ease, border-color 0.25s ease;
     }
-    .card:hover { transform: translateY(-3px); border-color: var(--blue); }
-    .card h3 { font-size: 20px; letter-spacing: -0.03em; margin-bottom: 8px; }
-    .card p { color: var(--muted); font-size: 15px; }
+
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: var(--blue);
+    }
+
+    .card h3 {
+      font-size: 20px;
+      letter-spacing: -0.03em;
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
     .card .num {
       font-family: "IBM Plex Mono", monospace;
       font-size: 12px;
       color: var(--blue-2);
       margin-bottom: 10px;
     }
-    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 28px; }
-    .step { border-top: 1px solid var(--line); padding-top: 16px; }
-    .step b { display: block; font-size: 18px; margin-bottom: 6px; }
-    .step span { color: var(--muted); font-size: 15px; }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .step {
+      border-top: 1px solid var(--line);
+      padding-top: 16px;
+    }
+
+    .step b {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+
+    .step span {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    /* Product showcase */
     .tap-demo {
       border: 1px solid var(--line);
       border-radius: 22px;
-      min-height: 280px;
+      min-height: 360px;
+      padding: 28px;
       background:
-        radial-gradient(circle at 50% 55%, rgba(46,196,230,0.16), transparent 42%),
-        var(--card);
+        radial-gradient(
+          ellipse at 50% 52%,
+          rgba(46, 196, 230, 0.18),
+          transparent 48%
+        ),
+        linear-gradient(
+          145deg,
+          rgba(13, 28, 39, 0.98),
+          rgba(7, 18, 26, 0.98)
+        );
       display: grid;
       place-items: center;
       position: relative;
       overflow: hidden;
       cursor: pointer;
+      isolation: isolate;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
     }
-    .card-chip {
-      width: 148px;
-      height: 92px;
-      border-radius: 14px;
-      border: 1px solid rgba(126,231,255,0.5);
-      background: linear-gradient(160deg, #123044, #0b1c28);
-      box-shadow: 0 18px 40px rgba(0,0,0,0.35);
-      display: grid;
-      place-items: center;
+
+    .tap-demo:hover {
+      border-color: rgba(126, 231, 255, 0.42);
+      box-shadow:
+        0 18px 55px rgba(0, 0, 0, 0.18),
+        0 0 36px rgba(46, 196, 230, 0.07);
+    }
+
+    .product-photo {
+      display: block;
       position: relative;
       z-index: 2;
+      width: 100%;
+      max-width: 440px;
+      max-height: 310px;
+      object-fit: contain;
+      border-radius: 12px;
+      filter: drop-shadow(0 24px 28px rgba(0, 0, 0, 0.38));
+      transform: rotate(-2deg) translateY(-3px);
+      transition:
+        transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+        filter 0.45s ease;
     }
-    .card-chip span {
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 12px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--blue-2);
+
+    .tap-demo:hover .product-photo {
+      transform: rotate(0deg) translateY(-7px) scale(1.025);
+      filter: drop-shadow(0 30px 34px rgba(0, 0, 0, 0.46));
     }
+
     .demo-rings span {
       position: absolute;
       left: 50%;
@@ -187,16 +364,40 @@
       height: 40px;
       margin: -20px 0 0 -20px;
       border-radius: 50%;
-      border: 1px solid rgba(126,231,255,0.45);
+      border: 1px solid rgba(126, 231, 255, 0.45);
       animation: demoPulse 2.6s ease-out infinite;
+      pointer-events: none;
     }
-    .demo-rings span:nth-child(2) { animation-delay: .7s; }
-    .demo-rings span:nth-child(3) { animation-delay: 1.4s; }
+
+    .demo-rings span:nth-child(2) {
+      animation-delay: 0.7s;
+    }
+
+    .demo-rings span:nth-child(3) {
+      animation-delay: 1.4s;
+    }
+
     @keyframes demoPulse {
-      0% { transform: scale(1); opacity: .8; }
-      100% { transform: scale(7); opacity: 0; }
+      0% {
+        transform: scale(1);
+        opacity: 0.8;
+      }
+      100% {
+        transform: scale(7);
+        opacity: 0;
+      }
     }
-    .hint { margin-top: 10px; text-align: center; color: var(--dim); font-family: "IBM Plex Mono", monospace; font-size: 12px; }
+
+    .product-caption {
+      margin-top: 12px;
+      text-align: center;
+      color: var(--dim);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
     footer {
       border-top: 1px solid var(--line);
       padding: 28px 0 48px;
@@ -204,7 +405,14 @@
       font-size: 13px;
       text-align: center;
     }
-    .footer-sites { position: relative; display: flex; justify-content: center; margin-bottom: 14px; }
+
+    .footer-sites {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 14px;
+    }
+
     .footer-brand {
       border: 1px solid var(--line);
       background: var(--card);
@@ -219,6 +427,7 @@
       padding: 8px 12px 8px 16px;
       border-radius: 999px;
     }
+
     .caret-pill {
       font-family: "IBM Plex Mono", monospace;
       font-size: 10px;
@@ -229,6 +438,7 @@
       border-radius: 999px;
       padding: 4px 8px;
     }
+
     .site-menu {
       position: absolute;
       bottom: calc(100% + 8px);
@@ -243,18 +453,69 @@
       z-index: 50;
       text-align: left;
     }
-    .site-menu.open { display: block; }
-    .site-menu a { display: block; padding: 10px 12px; border-radius: 10px; font-weight: 600; }
-    .site-menu a:hover { background: rgba(255,255,255,0.04); }
-    .site-menu .btc { color: #f7931a; }
+
+    .site-menu.open {
+      display: block;
+    }
+
+    .site-menu a {
+      display: block;
+      padding: 10px 12px;
+      border-radius: 10px;
+      font-weight: 600;
+    }
+
+    .site-menu a:hover {
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .site-menu .btc {
+      color: #f7931a;
+    }
+
     @media (max-width: 800px) {
-      .nav-links { display: none; }
-      .grid, .grid.two, .steps { grid-template-columns: 1fr; }
-      .hero { padding-top: 56px; }
-      .ring { left: 50%; top: 12%; }
+      .nav-links {
+        display: none;
+      }
+
+      .grid,
+      .grid.two,
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 56px;
+      }
+
+      .ring {
+        left: 50%;
+        top: 12%;
+      }
+
+      .tap-demo {
+        min-height: 300px;
+        padding: 20px;
+      }
+
+      .product-photo {
+        max-height: 250px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
     }
   </style>
 </head>
+
 <body>
   <div class="waves" aria-hidden="true">
     <span class="ring"></span>
@@ -266,11 +527,13 @@
   <header>
     <div class="wrap nav">
       <a class="brand" href="#top" id="brand">Wave23 inc.</a>
-      <nav class="nav-links">
+
+      <nav class="nav-links" aria-label="Main navigation">
         <a href="#product">Product</a>
         <a href="#strategy">Strategy</a>
         <a href="#reviews">Reviews</a>
       </nav>
+
       <a class="nav-cta" href="mailto:henry@fransoo.com">Get cards</a>
     </div>
   </header>
@@ -278,40 +541,89 @@
   <main class="wrap" id="top">
     <section class="hero">
       <p class="kicker">Wave23 · NFC for local businesses</p>
+
       <h1>Tap.<br />Review.<br />Done.</h1>
-      <p class="lede">Wave23 makes programmable <strong>NFC cards</strong> that turn a phone tap into a Google review. No app. No QR hunt. Just a tap at the counter, and the review page opens.</p>
+
+      <p class="lede">
+        Wave23 makes programmable <strong>NFC cards</strong> that turn a
+        phone tap into a Google review. No app. No QR hunt. Just a tap at
+        the counter, and the review page opens.
+      </p>
     </section>
 
     <section id="product">
       <p class="section-label">01 — The product</p>
+
       <h2>A card that does one job well.</h2>
+
       <div class="prose">
-        <p>Each Wave23 card is programmed to a business’s Google review link. A customer taps it with their phone. The review form opens. That’s the whole product.</p>
-        <p>It sits on a counter, a receipt tray, a table, or a front desk. The same motion people already use for tap-to-pay. Familiar, fast, and hard to ignore when the card is right there.</p>
+        <p>
+          Each Wave23 card is programmed to a business’s Google review link.
+          A customer taps it with their phone. The review form opens.
+          That’s the whole product.
+        </p>
+
+        <p>
+          It sits on a counter, a receipt tray, a table, or a front desk.
+          The same motion people already use for tap-to-pay. Familiar,
+          fast, and hard to ignore when the card is right there.
+        </p>
       </div>
+
       <div class="grid two">
         <div>
-          <div class="tap-demo" id="tapDemo">
-            <div class="demo-rings"><span></span><span></span><span></span></div>
-            <div class="card-chip"><span>wave23</span></div>
+          <div
+            class="tap-demo"
+            id="tapDemo"
+            role="img"
+            aria-label="Wave23 NFC review card product photo"
+          >
+            <div class="demo-rings" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+
+            <img
+              class="product-photo"
+              src="https://raw.githubusercontent.com/codelyoon/fransoo.com-wave23/1a0ddd7ab2ddfd62bcaa93fbd756307ab503d57a/image-example.jpg"
+              alt="Wave23 NFC review card"
+              loading="eager"
+              decoding="async"
+            />
           </div>
-          <p class="hint">tap the card</p>
+
+          <p class="product-caption">
+            One tap. Straight to your review page.
+          </p>
         </div>
-        <div class="grid" style="margin-top:0; grid-template-columns:1fr;">
+
+        <div class="grid" style="margin-top: 0; grid-template-columns: 1fr;">
           <article class="card">
             <p class="num">01</p>
-            <h3>Programmaed for you</h3>
-            <p>Pointed at your Google review page, or swapped later if the link changes.</p>
+            <h3>Programmed for you</h3>
+            <p>
+              Pointed at your Google review page, or swapped later if the
+              link changes.
+            </p>
           </article>
+
           <article class="card">
             <p class="num">02</p>
             <h3>No app</h3>
-            <p>Works with the NFC already in modern phones. Customer taps. Page opens.</p>
+            <p>
+              Works with the NFC already in modern phones. Customer taps.
+              Page opens.
+            </p>
           </article>
+
           <article class="card">
             <p class="num">03</p>
             <h3>Built for the counter</h3>
-            <p>Physical, visible, and timed for the moment someone is happy with the service.</p>
+            <p>
+              Physical, visible, and timed for the moment someone is happy
+              with the service.
+            </p>
           </article>
         </div>
       </div>
@@ -319,72 +631,144 @@
 
     <section id="strategy">
       <p class="section-label">02 — Where it fits</p>
+
       <h2>The missing step in local marketing.</h2>
+
       <div class="prose">
-        <p>Most local marketing tries to get found: Google Business Profile, photos, posts, a decent site. Reviews are the part that compounds after someone has already walked in.</p>
-        <p>Wave23 doesn’t replace ads or a website. It catches the customer who is already standing in front of you and makes the review easy enough that they actually leave one. More reviews, more recent reviews, and a stronger local listing without buying another click.</p>
+        <p>
+          Most local marketing tries to get found: Google Business Profile,
+          photos, posts, a decent site. Reviews are the part that compounds
+          after someone has already walked in.
+        </p>
+
+        <p>
+          Wave23 doesn’t replace ads or a website. It catches the customer
+          who is already standing in front of you and makes the review easy
+          enough that they actually leave one. More reviews, more recent
+          reviews, and a stronger local listing without buying another click.
+        </p>
       </div>
+
       <div class="steps">
-        <div class="step"><b>They find you</b><span>Search, maps, a referral. The listing has to look alive.</span></div>
-        <div class="step"><b>They show up</b><span>Service happens. This is the only moment a review is easy to ask for.</span></div>
-        <div class="step"><b>They tap</b><span>The card opens the review. The listing gets proof for the next person.</span></div>
+        <div class="step">
+          <b>They find you</b>
+          <span>Search, maps, a referral. The listing has to look alive.</span>
+        </div>
+
+        <div class="step">
+          <b>They show up</b>
+          <span>Service happens. This is the only moment a review is easy to ask for.</span>
+        </div>
+
+        <div class="step">
+          <b>They tap</b>
+          <span>The card opens the review. The listing gets proof for the next person.</span>
+        </div>
       </div>
     </section>
 
     <section id="reviews">
       <p class="section-label">03 — Why reviews</p>
+
       <h2>Google reviews do the selling when you’re not in the room.</h2>
+
       <div class="grid">
         <article class="card">
           <h3>Local ranking</h3>
-          <p>Review count, recency, and rating are signals Google uses when it decides who shows up in Maps and local search.</p>
+          <p>
+            Review count, recency, and rating are signals Google uses when
+            it decides who shows up in Maps and local search.
+          </p>
         </article>
+
         <article class="card">
           <h3>Trust before the visit</h3>
-          <p>People compare listings. A business with fresh reviews looks open, busy, and less of a risk than one with three reviews from 2022.</p>
+          <p>
+            People compare listings. A business with fresh reviews looks
+            open, busy, and less of a risk than one with three reviews
+            from 2022.
+          </p>
         </article>
+
         <article class="card">
           <h3>Higher intent clicks</h3>
-          <p>A stronger listing gets more taps on call, directions, and website. That’s traffic you don’t pay for per click.</p>
+          <p>
+            A stronger listing gets more taps on call, directions, and
+            website. That’s traffic you don’t pay for per click.
+          </p>
         </article>
+
         <article class="card">
           <h3>Social proof in the reply</h3>
-          <p>Reviews answer the questions ads don’t: was it clean, on time, worth it, would they go back.</p>
+          <p>
+            Reviews answer the questions ads don’t: was it clean, on time,
+            worth it, would they go back.
+          </p>
         </article>
+
         <article class="card">
           <h3>A feedback loop</h3>
-          <p>Public reviews tell you what to fix. Private complaints are useful. Silent customers are not.</p>
+          <p>
+            Public reviews tell you what to fix. Private complaints are
+            useful. Silent customers are not.
+          </p>
         </article>
+
         <article class="card">
           <h3>Compounds</h3>
-          <p>One review helps a little. A steady stream changes how the business looks every month after that.</p>
+          <p>
+            One review helps a little. A steady stream changes how the
+            business looks every month after that.
+          </p>
         </article>
       </div>
     </section>
 
     <section id="get">
       <p class="section-label">04 — Start</p>
+
       <h2>Cards for shops that want more reviews without another app.</h2>
+
       <div class="prose">
-        <p>Wave23 is run under Woeller23 Ventures. If you want cards for a shop, restaurant, clinic, or contractor, email <a href="mailto:henry@fransoo.com" style="color:var(--blue-2)">henry@fransoo.com</a>.</p>
+        <p>
+          Wave23 is run under Woeller23 Ventures. If you want cards for a
+          shop, restaurant, clinic, or contractor, email
+          <a href="mailto:henry@fransoo.com" style="color: var(--blue-2);">
+            henry@fransoo.com
+          </a>.
+        </p>
       </div>
     </section>
 
     <footer>
       <div class="footer-sites">
-        <button class="footer-brand" id="siteCaret" type="button" aria-expanded="false">wave23.fransoo.com <span class="caret-pill">▾ sites</span></button>
+        <button
+          class="footer-brand"
+          id="siteCaret"
+          type="button"
+          aria-expanded="false"
+          aria-controls="siteMenu"
+        >
+          wave23.fransoo.com
+          <span class="caret-pill">▾ sites</span>
+        </button>
+
         <div class="site-menu" id="siteMenu">
           <a href="https://fransoo.com">fransoo.com</a>
           <a href="https://wave23.fransoo.com">wave23.fransoo.com</a>
-          <a href="https://bitcoin.fransoo.com"><span class="btc">bitcoin.</span>fransoo.com</a>
+          <a href="https://bitcoin.fransoo.com">
+            <span class="btc">bitcoin.</span>fransoo.com
+          </a>
         </div>
       </div>
+
       <span>© Henry Fransoo • fransoo.com • Woeller23 Ventures</span>
     </footer>
   </main>
 
   <script>
     const brand = document.getElementById("brand");
+
     function burstAt(x, y) {
       for (let i = 0; i < 3; i++) {
         const ring = document.createElement("span");
@@ -392,25 +776,38 @@
         ring.style.left = x + "px";
         ring.style.top = y + "px";
         ring.style.animationDelay = (i * 0.12) + "s";
+
         document.body.appendChild(ring);
+
         setTimeout(() => ring.remove(), 1600);
       }
     }
+
     brand.addEventListener("click", e => {
       e.preventDefault();
       burstAt(e.clientX, e.clientY);
     });
+
     document.getElementById("tapDemo").addEventListener("click", e => {
       const rect = e.currentTarget.getBoundingClientRect();
-      burstAt(rect.left + rect.width / 2, rect.top + rect.height * 0.55);
+
+      burstAt(
+        rect.left + rect.width / 2,
+        rect.top + rect.height * 0.55
+      );
     });
+
     const siteCaret = document.getElementById("siteCaret");
     const siteMenu = document.getElementById("siteMenu");
+
     siteCaret.addEventListener("click", e => {
       e.stopPropagation();
+
       const open = siteMenu.classList.toggle("open");
+
       siteCaret.setAttribute("aria-expanded", open ? "true" : "false");
     });
+
     document.addEventListener("click", () => {
       siteMenu.classList.remove("open");
       siteCaret.setAttribute("aria-expanded", "false");
